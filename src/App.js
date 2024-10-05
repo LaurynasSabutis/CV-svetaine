@@ -1,84 +1,93 @@
 import React, { useState } from 'react';
-import PersonInfo from './components/PersonInfo';
-import Contact from './components/Contact';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Footer from './components/Footer';
+import AsmenineInformacija from './components/AsmenineInformacija.js';
+import Kontaktai from './components/Kontaktai.js';
+import Gebejimai from './components/Gebejimai.js';
+import Projektai from './components/Projektai.js';
+import Footer from './components/Footer.js';
 import './styles/App.css';
+import './styles/button.css';
 import { SiJavascript, SiReact, SiNodedotjs, SiMysql, SiMicrosoftexcel, SiMicrosoftword, SiWordpress } from 'react-icons/si';
 import { FaLinkedin, FaGithub, FaDiscord } from 'react-icons/fa';
 
 function App() {
-  const [showContact, setShowContact] = useState(false); // State for Contact visibility
-  const [showSkills, setShowSkills] = useState(false); // State for Skills visibility
+  const [rodytiKontaktus, nustatytiRodytiKontaktus] = useState(false); // Būsena, ar rodyti Kontaktus
+  const [rodytiGebejimus, nustatytiRodytiGebejimus] = useState(false); // Būsena, ar rodyti Gebėjimus
 
-  const person = {
-    name: 'Laurynas Sabutis',
-    photo: '/photo/photo.jpg',
-    about: [
+  const asmuo = {
+    vardas: 'Laurynas Sabutis',
+    nuotrauka: '/nuotrauka/photo.jpg',
+    apie: [
       'Motyvuotas ir atsakingas specialistas.',
-      'Turiu 5 metų patirtį programinės įrangos kūrimo srityje.',
+      'Turiu 2 metų patirtį programinės įrangos kūrimo srityje.',
       'Man patinka spręsti sudėtingas problemas.'
     ],
-    contacts: {
-      email: 'laurynas.sabutis@stud.ktmc.lt',
-      phone: '+370 600 00000',
-      social: [
-        { name: 'LinkedIn', url: 'https://www.linkedin.com/in/jonas', icon: <FaLinkedin /> },
-        { name: 'GitHub', url: 'https://github.com/LaurynasSabutis', icon: <FaGithub /> },
-        { name: 'Discord', url: 'https://discord.com/jonas', icon: <FaDiscord /> }
+    kontaktai: {
+      elpastas: 'laurynas.sabutis@stud.ktmc.lt',
+      telefonas: '+370 600 00000',
+      socialiniai: [
+        { pavadinimas: 'LinkedIn', url: 'https://www.linkedin.com/in/jonas', ikona: <FaLinkedin /> },
+        { pavadinimas: 'GitHub', url: 'https://github.com/LaurynasSabutis', ikona: <FaGithub /> },
+        { pavadinimas: 'Discord', url: 'https://discord.com/jonas', ikona: <FaDiscord /> }
       ]
     },
-    skills: [
-      { name: 'JavaScript', icon: <SiJavascript /> },
-      { name: 'React', icon: <SiReact /> },
-      { name: 'Node.js', icon: <SiNodedotjs /> },
-      { name: 'WordPress', icon: <SiWordpress /> },
-      { name: 'MySQL', icon: <SiMysql /> },
-      { name: 'Microsoft Excel', icon: <SiMicrosoftexcel /> },
-      { name: 'Microsoft Word', icon: <SiMicrosoftword /> }
+    gebejimai: [
+      { pavadinimas: 'JavaScript', ikona: <SiJavascript /> },
+      { pavadinimas: 'React', ikona: <SiReact /> },
+      { pavadinimas: 'Node.js', ikona: <SiNodedotjs /> },
+      { pavadinimas: 'WordPress', ikona: <SiWordpress /> },
+      { pavadinimas: 'MySQL', ikona: <SiMysql /> },
+      { pavadinimas: 'Microsoft Excel', ikona: <SiMicrosoftexcel /> },
+      { pavadinimas: 'Microsoft Word', ikona: <SiMicrosoftword /> }
     ],
-    projects: [
+    projektai: [
       {
-        name: 'E-parduotuvė',
-        images: ['/path/to/image1.jpg', '/path/to/image2.jpg'],
-        description: 'Sukurtas pilnas e-parduotuvės sprendimas su React ir Node.js.',
-        links: [
-          { name: 'Live', url: 'https://eparduotuve.com' },
-          { name: 'GitHub', url: 'https://github.com/jonas/eparduotuve' }
+        pavadinimas: 'E-parduotuvė',
+        nuotraukos: ['/kelias/į/nuotrauka1.jpg', '/kelias/į/nuotrauka2.jpg'],
+        aprasymas: 'Sukurtas pilnas e-parduotuvės sprendimas su React ir Node.js.',
+        nuorodos: [
+          { pavadinimas: 'Gyvai', url: 'https://eparduotuve.com' },
+          { pavadinimas: 'GitHub', url: 'https://github.com/jonas/eparduotuve' }
         ]
       },
       {
-        name: 'Portfolio svetainė',
-        images: ['/path/to/image3.jpg'],
-        description: 'Asmeninės svetainės sukūrimas naudojant React.',
-        links: [
-          { name: 'GitHub', url: 'https://github.com/jonas/portfolio' }
+        pavadinimas: 'Portfolio svetainė',
+        nuotraukos: ['/kelias/į/nuotrauka3.jpg'],
+        aprasymas: 'Asmeninės svetainės sukūrimas naudojant React.',
+        nuorodos: [
+          { pavadinimas: 'GitHub', url: 'https://github.com/jonas/portfolio' }
         ]
       }
     ]
   };
 
+  // Determine background color for the list container
+  const listBackgroundColor = rodytiKontaktus || rodytiGebejimus ? '#e7f3ff' : 'transparent'; // Adjust as needed
+
   return (
     <div>
-      <div className="container">
-        <PersonInfo name={person.name} photo={person.photo} about={person.about} />
+      <div className="konteineris"> {/* Main container */}
+        <AsmenineInformacija vardas={asmuo.vardas} nuotrauka={asmuo.nuotrauka} apie={asmuo.apie} />
         
-        <div className="toggle-container"> {/* Container for buttons */}
-          <button onClick={() => setShowContact(!showContact)}>
-            {showContact ? 'Hide Contact' : 'Show Contact'}
+        <div className="perjungimo-konteineris">
+          <button onClick={() => nustatytiRodytiKontaktus(!rodytiKontaktus)}>
+            {rodytiKontaktus ? 'Slėpti Kontaktus' : 'Rodyti Kontaktus'}
           </button>
-          <button onClick={() => setShowSkills(!showSkills)}>
-            {showSkills ? 'Hide Skills' : 'Show Skills'}
+          <button onClick={() => nustatytiRodytiGebejimus(!rodytiGebejimus)}>
+            {rodytiGebejimus ? 'Slėpti Gebėjimus' : 'Rodyti Gebėjimus'}
           </button>
         </div>
 
-        <div className="content-container"> {/* Wraps the Contact and Skills sections */}
-          {showContact && <Contact contacts={person.contacts} />}
-          {showSkills && <Skills skills={person.skills} />}
+      <div className='horizontalus-konteineris'>
+        <div className="turinio-konteineris" style={{ backgroundColor: listBackgroundColor }}>
+          <div className="list-content">
+            {rodytiKontaktus && <Kontaktai kontaktai={asmuo.kontaktai} />}
+            {rodytiGebejimus && <Gebejimai gebejimai={asmuo.gebejimai} />}
+          </div>
         </div>
+      </div>
         
-        <Projects projects={person.projects} />
+        
+        <Projektai projektai={asmuo.projektai} />
         <Footer />
       </div>
     </div>
