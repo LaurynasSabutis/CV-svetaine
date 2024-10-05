@@ -1,22 +1,28 @@
 import React from 'react';
+import { FaEnvelope, FaPhone } from 'react-icons/fa'; // Import icons
+import '../styles/Contact.css';
 
 function Contact({ contacts }) {
   return (
-    <div className="contact-info">
-      <h2>Kontaktai</h2>
-      <p><strong>El. paštas:</strong> <a href={`mailto:${contacts.email}`}>{contacts.email}</a></p>
-      <p><strong>Telefonas:</strong> {contacts.phone}</p>
-      <ul>
+    <div className="contacts">
+      <p>
+        <FaEnvelope /> {/* Email icon */}
+        <a href={`mailto:${contacts.email}`}>{contacts.email}</a>
+      </p>
+      <p>
+        <FaPhone /> {/* Phone icon */}
+        {contacts.phone}
+      </p>
+      <div>
         {contacts.social.map((social, index) => (
-          <li key={index}>
-            <a href={social.url} target="_blank" rel="noopener noreferrer">
-              <img src={`/path/to/icons/${social.icon}.png`} alt={`${social.name}`} /> {social.name}
-            </a>
-          </li>
+          <a key={index} href={social.url} target="_blank" rel="noopener noreferrer">
+            {social.icon} {social.name}
+          </a>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
 
 export default Contact;
+

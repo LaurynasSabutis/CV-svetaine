@@ -1,31 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PersonInfo from './components/PersonInfo';
 import Contact from './components/Contact';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Footer from './components/Footer';
+import './styles/App.css';
+import { SiJavascript, SiReact, SiNodedotjs, SiMysql, SiMicrosoftexcel, SiMicrosoftword, SiWordpress } from 'react-icons/si';
+import { FaLinkedin, FaGithub, FaDiscord } from 'react-icons/fa';
 
 function App() {
+  const [showContact, setShowContact] = useState(false); // State for Contact visibility
+  const [showSkills, setShowSkills] = useState(false); // State for Skills visibility
+
   const person = {
-    name: 'Jonas Jonaitis',
-    photo: '/path/to/photo.jpg',
+    name: 'Laurynas Sabutis',
+    photo: '/photo/photo.jpg',
     about: [
       'Motyvuotas ir atsakingas specialistas.',
       'Turiu 5 metų patirtį programinės įrangos kūrimo srityje.',
       'Man patinka spręsti sudėtingas problemas.'
     ],
     contacts: {
-      email: 'jonas@example.com',
+      email: 'laurynas.sabutis@stud.ktmc.lt',
       phone: '+370 600 00000',
       social: [
-        { name: 'LinkedIn', url: 'https://www.linkedin.com/in/jonas', icon: 'linkedin-icon' },
-        { name: 'GitHub', url: 'https://github.com/jonas', icon: 'github-icon' }
+        { name: 'LinkedIn', url: 'https://www.linkedin.com/in/jonas', icon: <FaLinkedin /> },
+        { name: 'GitHub', url: 'https://github.com/LaurynasSabutis', icon: <FaGithub /> },
+        { name: 'Discord', url: 'https://discord.com/jonas', icon: <FaDiscord /> }
       ]
     },
     skills: [
-      { name: 'JavaScript', icon: 'js-icon' },
-      { name: 'React', icon: 'react-icon' },
-      { name: 'Node.js', icon: 'nodejs-icon' }
+      { name: 'JavaScript', icon: <SiJavascript /> },
+      { name: 'React', icon: <SiReact /> },
+      { name: 'Node.js', icon: <SiNodedotjs /> },
+      { name: 'WordPress', icon: <SiWordpress /> },
+      { name: 'MySQL', icon: <SiMysql /> },
+      { name: 'Microsoft Excel', icon: <SiMicrosoftexcel /> },
+      { name: 'Microsoft Word', icon: <SiMicrosoftword /> }
     ],
     projects: [
       {
@@ -50,11 +61,26 @@ function App() {
 
   return (
     <div>
-      <PersonInfo name={person.name} photo={person.photo} about={person.about} />
-      <Contact contacts={person.contacts} />
-      <Skills skills={person.skills} />
-      <Projects projects={person.projects} />
-      <Footer />
+      <div className="container">
+        <PersonInfo name={person.name} photo={person.photo} about={person.about} />
+        
+        <div className="toggle-container"> {/* Container for buttons */}
+          <button onClick={() => setShowContact(!showContact)}>
+            {showContact ? 'Hide Contact' : 'Show Contact'}
+          </button>
+          <button onClick={() => setShowSkills(!showSkills)}>
+            {showSkills ? 'Hide Skills' : 'Show Skills'}
+          </button>
+        </div>
+
+        <div className="content-container"> {/* Wraps the Contact and Skills sections */}
+          {showContact && <Contact contacts={person.contacts} />}
+          {showSkills && <Skills skills={person.skills} />}
+        </div>
+        
+        <Projects projects={person.projects} />
+        <Footer />
+      </div>
     </div>
   );
 }

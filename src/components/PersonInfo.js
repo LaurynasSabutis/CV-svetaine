@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/PersonInfo.css';
 
 function PersonInfo({ name, photo, about }) {
   return (

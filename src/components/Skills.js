@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/Skills.css';
 
 function Skills({ skills }) {
   return (
@@ -7,7 +8,8 @@ function Skills({ skills }) {
       <ul>
         {skills.map((skill, index) => (
           <li key={index}>
-            <img src={`/path/to/icons/${skill.icon}.png`} alt={`${skill.name}`} /> {skill.name}
+            <span className="skill-icon">{skill.icon}</span>
+            {skill.name}
           </li>
         ))}
       </ul>

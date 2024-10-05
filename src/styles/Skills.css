@@ -1,0 +1,22 @@
+.skills {
+    margin-top: 30px;
+  }
+  
+  .skills ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .skills li {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+  }
+  
+  .skills li svg {
+    margin-right: 8px;
+    font-size: 1.5rem;
+  }
+  

@@ -1,0 +1,34 @@
+.projects {
+  margin-top: 40px;
+}
+
+.project {
+  margin-bottom: 30px;
+}
+
+.project img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.project h3 {
+  font-size: 1.5rem;
+  color: #007bff;
+  margin-bottom: 5px;
+}
+
+.project p {
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.project a {
+  font-size: 1rem;
+  color: #007bff;
+  margin-right: 10px;
+}
+
+.project a:hover {
+  text-decoration: underline;
+}
