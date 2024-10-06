@@ -15,7 +15,7 @@ function App() {
 
   const asmuo = {
     vardas: 'Laurynas Sabutis',
-    nuotrauka: '/nuotrauka/photo.jpg',
+    nuotrauka: 'assets/veidasphoto.jpg',
     apie: [
       'Motyvuotas ir atsakingas specialistas.',
       'Turiu 2 metų patirtį programinės įrangos kūrimo srityje.',
@@ -42,7 +42,7 @@ function App() {
     projektai: [
       {
         pavadinimas: 'Įvairios užduotys',
-        nuotraukos: ['/kelias/į/nuotrauka1.jpg', '/kelias/į/nuotrauka2.jpg'],
+        nuotrauka: '/assets/nuotrauka.png', 
         aprasymas: 'Įvairios užduotys darytos su html, css ir js.',
         nuorodos: [
           { pavadinimas: 'Atsiskaityti darbai', url: 'https://github.com/LaurynasSabutis/AtsiskaitomiejiDarbai' }
@@ -83,6 +83,3 @@ function App() {
 }
 
 export default App;
-
-
-

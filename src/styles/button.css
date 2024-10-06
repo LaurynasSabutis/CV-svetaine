@@ -1,21 +1,20 @@
-/* Optional: Style the buttons */
 button {
-    background-color: #007bff;  /* Bootstrap-like blue color */
-    color: white;  /* White text */
-    border: none;  /* No border */
-    padding: 10px 20px;  /* Padding for the button */
-    font-size: 16px;  /* Font size */
-    border-radius: 5px;  /* Rounded corners */
-    cursor: pointer;  /* Cursor pointer for interactivity */
-    transition: background-color 0.3s ease;  /* Smooth transition */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
   }
   
   button:hover {
-    background-color: #0056b3;  /* Darker blue on hover */
+    background-color: #0056b3;
   }
   
   .toggle-container {
     display: flex;
-    justify-content: space-between;  /* Space buttons apart */
-    margin: 20px 0;  /* Add spacing between buttons and content */
+    justify-content: space-between;
+    margin: 20px 0; 
   }

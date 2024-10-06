@@ -8,19 +8,15 @@ function Projektai({ projektai }) {
       {projektai.map((projektas, index) => (
         <div key={index} className="projektas">
           <h3>{projektas.pavadinimas}</h3>
-          <div className="projektas-nuotraukos">
-            {projektas.nuotraukos.map((nuotrauka, idx) => (
-              <img key={idx} src={nuotrauka} alt={`Projektas ${projektas.pavadinimas}`} />
-            ))}
+          <div className="projektas-nuotrauka">
+            <img src={projektas.nuotrauka} alt={`Projektas ${projektas.pavadinimas}`} />
           </div>
           <p>{projektas.aprasymas}</p>
-          <ul>
+          <div className="projektas-nuorodos">
             {projektas.nuorodos.map((nuoroda, idx) => (
-              <li key={idx}>
-                <a href={nuoroda.url} target="_blank" rel="noopener noreferrer">{nuoroda.pavadinimas}</a>
-              </li>
+              <a key={idx} href={nuoroda.url} target="_blank" rel="noopener noreferrer">{nuoroda.pavadinimas}</a>
             ))}
-          </ul>
+          </div>
         </div>
       ))}
     </div>
