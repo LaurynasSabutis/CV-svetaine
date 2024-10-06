@@ -4,7 +4,7 @@ import '../styles/Footer.css';
 function Footer() {
   return (
     <footer>
-      <p>© {new Date().getFullYear()} Jonas Jonaitis. Visos teisės saugomos.</p>
+      <p>© {new Date().getFullYear()} Laurynas Sabutis. Visos teisės saugomos.</p>
     </footer>
   );
 }

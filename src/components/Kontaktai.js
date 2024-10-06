@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaEnvelope, FaPhone } from 'react-icons/fa'; // Importuoja ikonas
+import { FaEnvelope, FaPhone } from 'react-icons/fa';
 import '../styles/Kontaktai.css';
 
 function Kontaktai({ kontaktai }) {

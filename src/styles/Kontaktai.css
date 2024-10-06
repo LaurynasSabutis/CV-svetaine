@@ -3,19 +3,19 @@
   }
   
   .contacts p {
-    display: flex; /* Use flexbox to align items */
-    align-items: center; /* Center items vertically */
-    font-size: 1.1rem; /* Set font size */
-    margin-bottom: 10px; /* Space between lines */
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
   }
   
   .contacts a {
     color: #333;
-    margin-left: 8px; /* Space between icon and text */
+    margin-left: 8px;
   }
   
   .contacts a svg {
-    margin-right: 8px; /* Space between icon and text for social links */
-    font-size: 1.5rem; /* Icon size */
+    margin-right: 8px;
+    font-size: 1.5rem;
   }
   
