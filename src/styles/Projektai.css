@@ -1,0 +1,44 @@
+.projektai {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.projektas {
+  margin-bottom: 30px;
+  text-align: center
+}
+
+.projektas h3 {
+  font-size: 1.5rem;
+  color: #007bff;
+  margin-bottom: 5px;
+}
+
+.projektas p {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.projektas a {
+
+  color: black;
+  text-decoration: none;
+}
+
+.projektas a:hover {
+  text-decoration: underline;
+}
+
+.projektas-nuotrauka {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.projektas-nuotrauka img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
